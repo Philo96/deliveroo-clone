@@ -4,21 +4,16 @@ import { NavigationContainer } from '@react-navigation/native';
 import { TailwindProvider } from "taiwindcss-react-native";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>This app is Basically made  by Philopatear Abdelmaseh</Text>
-      <StatusBar style="auto" />
-    </View>
+      <NavigationContainer>
+        <TailwindProvider>
+          <Stack.Navigator>
+            <Stack.Screen name="Home" component={HomeScreen} />
+          </Stack.Navigator>
+        </TailwindProvider>
+      </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#b72f2f',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
